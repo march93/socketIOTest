@@ -7,7 +7,9 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  socket.emit("chat message", "HELLO TEST");
+  for (i = 0; i < 100; i++) {
+    socket.emit("chat message", `HELLO TEST ${i}`);
+  }
 });
 
 http.listen(3000, () => {

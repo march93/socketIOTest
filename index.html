@@ -27,12 +27,17 @@
     <script>
       var socket = io();
 
+      var messages = document.getElementById('messages');
       var form = document.getElementById('form');
       var input = document.getElementById('input');
     
       socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
-        input.value = msg;
+        var node = document.createElement("LI");
+        var textNode = document.createTextNode(msg);
+
+        node.appendChild(textNode);
+        messages.appendChild(node);
       });
     </script>
   </body>
